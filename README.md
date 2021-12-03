@@ -1,4 +1,8 @@
-# job-list
+# Job List
+
+[Demo Link](https://job-list-emineozgenel.vercel.app/)
+
+![Screenshot](https://github.com/emineozgenel/job-list/blob/main/public/screenshot.png)
 
 ## Project setup
 
