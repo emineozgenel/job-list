@@ -1,18 +1,39 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Search />
+    <div class="row">
+      <Card :key="job.id" v-for="job in jobs" :dataItem="job" />
+    </div>
+    <Spinner v-if="jobs.length === 0" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import { mapActions, mapState } from "vuex";
+import { Card, Search, Spinner } from "@/components";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld,
+    Card,
+    Search,
+    Spinner,
+  },
+  mounted() {
+    this.getAllJobs();
+  },
+  computed: {
+    ...mapState({
+      jobs: (state) => state.jobs.jobs,
+    }),
+  },
+  methods: {
+    ...mapActions(["getJobs"]),
+    getAllJobs() {
+      if (this.jobs.length === 0) {
+        this.getJobs();
+      }
+    },
   },
 };
 </script>

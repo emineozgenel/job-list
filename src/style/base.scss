@@ -1,0 +1,16 @@
+$primary-color: #8316b5;
+$black: #000000;
+
+body {
+  background-color: #fafafb;
+}
+p {
+  margin-bottom: 8px;
+}
+a {
+  text-decoration: none;
+  color: $black;
+}
+.text-primary-color {
+  color: $primary-color;
+}
